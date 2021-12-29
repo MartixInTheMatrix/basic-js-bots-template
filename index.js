@@ -1,0 +1,12 @@
+const { Client, Intents, Collection } = require('discord.js')
+const config = require('./util/config')
+const client = new Client({intents:config.INTENTS})
+
+client.login(config.token)
+client.commands = new Collection()
+
+const { loadEvents, loadCommands } = require('./startup')
+require("./util/functions")(client);
+
+loadEvents(client)
+loadCommands(client)
