@@ -2,16 +2,6 @@ const fs = require("fs");
 const Discord = require('discord.js')
 const { token, id } = require('./util/config');
 
-const loadCommands = (Client) => {
-    Client.commands = new Discord.Collection()
-    fs.readdirSync('./commands/').forEach(file => {
-
-            const getFileName = require(`./commands/${file}`);
-            Client.commands.set(getFileName.help.name, getFileName);
-        
-    })
-}
-
 const loadEvents = (Client) => {
     fs.readdirSync(`./events`).forEach(dirs => {
         const events = fs.readdirSync(`./events/${dirs}/`).filter(files => files.endsWith(".js"));
@@ -61,7 +51,6 @@ client.guilds.cache.forEach((g)=>{
 
 
 module.exports = {
-    loadCommands,
     loadEvents,
     deploySlashCommands
 }

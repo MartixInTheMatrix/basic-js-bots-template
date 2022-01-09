@@ -7,6 +7,7 @@ client.commands = new Collection()
 
 const { loadEvents, loadCommands } = require('./startup')
 require("./util/functions")(client);
+const db = require('./util/db')
 
 loadEvents(client)
-loadCommands(client)
+db.init()

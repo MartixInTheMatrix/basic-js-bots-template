@@ -1,7 +1,7 @@
 const config = require('../../util/config');
 const { deploySlashCommands } = require('../../startup')
 module.exports = async (Client) => {
-    const statuses = [`statut 1`, 'statut 2'];
+    const statuses = [`/help`, 'Centre Virtuel d\'Aide  aux Jeunes !', Client.guilds.cache.get(config.guildID).members.cache.size + ' membres !'];
 	var i = 0;
 
     setInterval(() => {
